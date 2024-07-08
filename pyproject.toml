@@ -1,0 +1,38 @@
+[project]
+name = "sqltestdata"
+version = "0.1.0"
+description = "Generating SQL test data with python"
+authors = [
+    {name = "ksilin", email = "konstantin.silin@gmail.com"},
+]
+dependencies = [
+    "sqlalchemy>=2.0.31",
+    "psycopg2-binary>=2.9.9",
+    "faker>=26.0.0",
+    "python-dotenv>=1.0.1",
+]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "pytest",
+]
+
+[tool.black]
+line-length = 88
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = "E203"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--strict-markers"
+testpaths = ["tests"]
